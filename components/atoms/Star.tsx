@@ -1,4 +1,3 @@
-import { VFC } from "react";
 import styled from "styled-components";
 import { sp, tab } from "../../utils/Media";
 

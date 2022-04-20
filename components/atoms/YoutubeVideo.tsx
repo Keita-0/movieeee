@@ -1,7 +1,7 @@
-import YouTube from 'react-youtube';
-import styled from 'styled-components';
-import { getVideo } from '../hooks/useFetchArray';
-import { Loading } from './Loading';
+import YouTube from "react-youtube";
+import styled from "styled-components";
+import { getVideo } from "../../hooks/useFetchArray";
+import { Loading } from "./Loading";
 
 export const YoutubeVideo = (props: any) => {
   const { movieId } = props;
@@ -12,7 +12,7 @@ export const YoutubeVideo = (props: any) => {
   if (isLoading) {
     return <Loading />;
   } else {
-    if (data.results.length === 0 || data.results[0].site !== 'YouTube') {
+    if (data.results.length === 0 || data.results[0].site !== "YouTube") {
       return null;
     }
   }
@@ -20,7 +20,7 @@ export const YoutubeVideo = (props: any) => {
   return (
     <VideoArea>
       <VideoLabel>予告</VideoLabel>
-      <YouTube videoId={data.results[0].key} />{' '}
+      <YouTube videoId={data.results[0].key} />{" "}
     </VideoArea>
   );
 };
