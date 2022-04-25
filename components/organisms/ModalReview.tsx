@@ -20,7 +20,7 @@ type Props = {
   setWatchedFlg: Dispatch<SetStateAction<boolean>>;
 };
 
-export const ModalReview: VFC<Props> = React.memo((props) => {
+export const ModalReview = React.memo((props: Props) => {
   const {
     closeButton,
     modalOpen,
