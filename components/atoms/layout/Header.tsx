@@ -1,13 +1,13 @@
-import { useCallback, useEffect } from "react";
-// import { useHistory, useLocation } from "react-router";
-// import { useRecoilState } from "recoil";
+import { useCallback, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
-// import { sp, tab } from "../../../Media";
-// import { loginFlg, searchFlg } from "../../../store/movieSearchState";
 import { NavBar } from "../../organisms/NavBar";
-import "../../../firebase";
+import "../../../Firebase/firebase";
 import { getAuth, signOut } from "firebase/auth";
 import { Search } from "../../molecules/Search";
+import { useRouter } from "next/router";
+import { sp } from "../../../utils/Media";
+import { useRecoilState } from "recoil";
+import { loginFlg } from "../../../store/movieSearchState";
 
 type Props = {
   active: boolean;
@@ -15,45 +15,49 @@ type Props = {
 };
 
 export const Header = () => {
-  // const history = useHistory();
-  // const location = useLocation();
-  // let homeAvtive = false;
-  // let myPageAvtive = false;
+  const router = useRouter();
 
-  // if (location.pathname === '/home') {
-  //   homeAvtive = true;
-  // } else if (location.pathname === '/home/mypage') {
-  //   myPageAvtive = true;
-  // }
+  const [homeActive, setHomeActive] = useState(false);
+  const [myPageAvtive, setMyPageAvtive] = useState(false);
 
-  // const [isSignedIn, setIsSignedIn] = useRecoilState(loginFlg);
-  // const onClickHome = useCallback(() => {
-  //   history.push('/home');
-  // }, []);
-  // const onClickWriting = useCallback(() => history.push('/home/mypage'), []);
+  if (router.pathname === "/home") {
+    setHomeActive(true);
+  } else if (router.pathname === "/home/mypage") {
+    setMyPageAvtive(true);
+  }
 
-  // const auth = getAuth();
-  // const onClickSignOut = () => {
-  //   signOut(auth)
-  //     .then(() => {
-  //       setIsSignedIn(false);
-  //       history.push('/');
-  //     })
-  //     .catch((error) => {
-  //       console.log('Sign-out error.');
-  //     });
-  // };
+  const [isSignedIn, setIsSignedIn] = useRecoilState(loginFlg);
+  const onClickHome = useCallback(() => {
+    router.push("/home");
+  }, []);
+  const onClickMypage = useCallback(() => router.push("/home/mypage"), []);
+
+  const auth = getAuth();
+  const onClickSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        setIsSignedIn(false);
+        router.push("/");
+      })
+      .catch((error) => {
+        console.log("Sign-out error.");
+      });
+  };
 
   return (
     <SHeader>
       <STitile>Moiveeee</STitile>
       <SContainer>
-        <SLink>Home</SLink>
-        <SLink>MyPage</SLink>
+        <SLink onClick={onClickHome} active={homeActive}>
+          Home
+        </SLink>
+        <SLink onClick={onClickMypage} active={myPageAvtive}>
+          MyPage
+        </SLink>
       </SContainer>
       <UserContainer>
         <Search />
-        <SingOut>サインアウト</SingOut>
+        <SingOut onClick={onClickSignOut}>サインアウト</SingOut>
       </UserContainer>
 
       <NavBar />
@@ -83,31 +87,23 @@ const STitile = styled.div`
   margin-left: 4vw;
 `;
 
-// const SLink = styled.div<Props>`
-//   margin: 25px;
-//   :hover {
-//     cursor: pointer;
-//     color: #0066ff;
-//   }
-
-//   ${(props) =>
-//     props.active
-//       ? css`
-//           color: #0066ff;
-//           border-bottom: 2px solid #0066ff;
-//         `
-//       : css``};
-//   ${sp`
-//         display:none;
-//     `}
-// `;
-
-const SLink = styled.div`
+const SLink = styled.div<Props>`
   margin: 25px;
   :hover {
     cursor: pointer;
     color: #0066ff;
   }
+
+  ${(props) =>
+    props.active
+      ? css`
+          color: #0066ff;
+          border-bottom: 2px solid #0066ff;
+        `
+      : css``};
+  ${sp`
+        display:none;
+    `}
 `;
 
 const UserContainer = styled.div`
