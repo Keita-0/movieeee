@@ -1,5 +1,4 @@
-import React from "react";
-import { VFC } from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 import { Star } from "../atoms/Star";
 import { YoutubeVideo } from "../atoms/YoutubeVideo";
@@ -13,7 +12,8 @@ type Props = {
   id: string;
 };
 
-export const DetailInfo: VFC<Props> = React.memo((props) => {
+// eslint-disable-next-line react/display-name
+export const DetailInfo = memo((props: Props) => {
   const { title, release_date, vote_average, overview, id } = props;
   return (
     <InfoArea>

@@ -1,13 +1,15 @@
 import styled from "styled-components";
 import { getPicUpMovies } from "../../hooks/useFetchArray";
-import { MovieCard } from "./MovieCard";
+import { MovieCard } from "../molecules/MovieCard";
 import { MoreButton } from "../atoms/button/MoreButton";
 import { Loading } from "../atoms/Loading";
 import { useRouter } from "next/router";
+import { memo } from "react";
 
 type Props = { pattern: { key: string; word: string } };
 
-export const PicUpMovies = (props: Props) => {
+// eslint-disable-next-line react/display-name
+export const PicUpMovies = memo((props: Props) => {
   const { pattern } = props;
   const router = useRouter();
   const { data, error, isLoading, isEmpty } = getPicUpMovies(pattern.key);
@@ -49,7 +51,7 @@ export const PicUpMovies = (props: Props) => {
       </MovieContainer>
     </MovieListArea>
   );
-};
+});
 
 const LabelContainer = styled.div`
   display: flex;

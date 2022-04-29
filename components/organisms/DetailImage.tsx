@@ -5,7 +5,7 @@ import {
   deleteBookMark,
   insertBookMark,
 } from "../../hooks/useFireStore";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Loading } from "../atoms/Loading";
 import styled from "styled-components";
 import React from "react";
@@ -19,7 +19,8 @@ type Props = {
   setmodalReview: Dispatch<SetStateAction<boolean>>;
 };
 
-export const DetailImage = React.memo((props: Props) => {
+// eslint-disable-next-line react/display-name
+export const DetailImage = memo((props: Props) => {
   const { movie, watchedFlg, setWatchedFlg, setmodalReview } = props;
 
   //stateの管理
@@ -70,7 +71,7 @@ export const DetailImage = React.memo((props: Props) => {
           src={
             movie.poster_path
               ? `https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`
-              : "../../icon/20200506_noimage.png"
+              : "/20200506_noimage.png"
           }
         />
       </Trim>
@@ -78,12 +79,12 @@ export const DetailImage = React.memo((props: Props) => {
         <MovieButton onClick={bookMarkFlg ? DeleteBookMark : BookMark}>
           {bookMarkFlg ? (
             <IcomImg
-              src="../../icon/icons8-ブックマークリボン-100 (2).png"
+              src={"/icons8-ブックマークリボン-100 (2).png"}
               alt="icon"
             />
           ) : (
             <IcomImg
-              src="../../icon/icons8-ブックマークリボン-100 (1).png"
+              src={"/icons8-ブックマークリボン-100 (1).png"}
               alt="icon"
             />
           )}
@@ -91,9 +92,9 @@ export const DetailImage = React.memo((props: Props) => {
         </MovieButton>
         <MovieButton onClick={OpenModalReview}>
           {watchedFlg ? (
-            <IcomImg src="../../icon/icons8-幸せな目-60-1黄色.png" alt="icon" />
+            <IcomImg src={"/icons8-幸せな目-60-1黄色.png"} alt="icon" />
           ) : (
-            <IcomImg src="../../icon/icons8-幸せな目-60.png" alt="icon" />
+            <IcomImg src={"/icons8-幸せな目-60.png"} alt="icon" />
           )}
           <Label>レビュー</Label>
         </MovieButton>

@@ -20,7 +20,7 @@ type Props = {
   setWatchedFlg: Dispatch<SetStateAction<boolean>>;
 };
 
-export const ModalReview = React.memo((props: Props) => {
+export const ModalReview = (props: Props) => {
   const {
     closeButton,
     modalOpen,
@@ -91,7 +91,7 @@ export const ModalReview = React.memo((props: Props) => {
       )}
     </>
   );
-});
+};
 
 const ModalArea = styled.div`
   position: fixed;

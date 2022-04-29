@@ -1,5 +1,5 @@
-import useSWR from 'swr';
-import { fetcher, searchFetcher } from '../utils/fetcher';
+import useSWR from "swr";
+import { fetcher, searchFetcher } from "../utils/fetcher";
 
 const useFetchArray = (url: string) => {
   const { data, error } = useSWR(url, fetcher);
@@ -48,7 +48,7 @@ export const getVideo = (id: number) => {
 
 export const useSearch = (params: any) => {
   return useFetchArrayQuery(
-    'https://api.themoviedb.org/3/search/movie?',
+    "https://api.themoviedb.org/3/search/movie?",
     params
   );
 };

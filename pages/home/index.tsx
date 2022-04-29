@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import React from "react";
 import styled from "styled-components";
+import { PicUpMovies } from "../../components/organisms/PicUpMovies";
 
 const Patterns = [
   { key: "now_playing", word: "上映中" },
@@ -13,8 +14,7 @@ const Home: NextPage = () => {
   return (
     <Body>
       {Patterns.map((pattern) => {
-        // return <PicUpMovies pattern={pattern} />;
-        return <div>test</div>;
+        return <PicUpMovies key={pattern.key} pattern={pattern} />;
       })}
     </Body>
   );
