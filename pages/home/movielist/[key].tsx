@@ -27,7 +27,7 @@ const MovieList: NextPage = () => {
   const [selectKey, setSelectKey] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
   const [key, setKey] = useState<string | undefined>("");
-  const isSearch: boolean = router.pathname.indexOf("search") !== -1;
+  const isSearch: boolean = router.asPath.indexOf("search") !== -1;
   const [refreshInterval, setRefreshInterval] = useState(1000);
 
   useEffect(() => {
@@ -72,9 +72,7 @@ const MovieList: NextPage = () => {
       //keyの取得
       if (isSearch) {
         setSelectKey(key.substring(key.indexOf("=") + 1, key.lastIndexOf("&")));
-        key
-          ? setPageNumber(parseInt(key.substring(key.indexOf("=") + 1)))
-          : null;
+        setPageNumber(parseInt(key.substring(key.indexOf("&page") + 6)));
       } else {
         setSelectKey(
           key.substring(
