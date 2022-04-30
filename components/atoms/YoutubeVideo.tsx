@@ -3,6 +3,8 @@ import YouTube from "react-youtube";
 import styled from "styled-components";
 import { getVideo } from "../../hooks/useFetchArray";
 import { Loading } from "./Loading";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
 // eslint-disable-next-line react/display-name
 export const YoutubeVideo = memo((props: any) => {
@@ -23,7 +25,7 @@ export const YoutubeVideo = memo((props: any) => {
   return (
     <VideoArea>
       <VideoLabel>予告</VideoLabel>
-      <YouTube videoId={data.results[0].key} />
+      <LiteYouTubeEmbed id={data.results[0].key} title={""} />
     </VideoArea>
   );
 });

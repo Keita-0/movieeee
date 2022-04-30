@@ -37,13 +37,7 @@ export const MovieCard = memo((props: Props) => {
 
   //カード押下時処理
   const onClickCard = () => {
-    router.push(
-      {
-        pathname: `/home/Movie/${movie.id}`,
-        query: movie,
-      },
-      `/home/Movie/${movie.id}`
-    );
+    router.push(`/home/movie/${movie.id}`);
   };
 
   return (

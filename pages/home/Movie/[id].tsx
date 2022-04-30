@@ -4,21 +4,46 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { CloseButton } from "../../../components/atoms/button/CloseButton";
 import { DetailInfo } from "../../../components/molecules/DetailInfo";
-import { DetailImage } from "../../../components/organisms/DetailImage";
+import { DetailImage } from "../../../components/molecules/DetailImage";
 import { ModalReview } from "../../../components/organisms/ModalReview";
 import { backfaceFixed } from "../../../utils/backfaceFixed";
-import YouTube from "react-youtube";
+import { getMovie } from "../../../hooks/useFetchArray";
+import { Loading } from "../../../components/atoms/Loading";
 
 const Movie: NextPage = () => {
   //Locationの取得
   const router = useRouter();
 
   //stateの管理
-  const [movie] = useState<any>(router.query);
+  const [refreshInterval, setRefreshInterval] = useState(10000);
   const [watchedFlg, setWatchedFlg] = useState<boolean>(false);
   const [modalReview, setmodalReview] = useState<boolean>(false);
+  const [id, setId] = useState<number | undefined>();
 
-  console.log(router.query.id);
+  const { data, error, isLoading, isEmpty } = getMovie(id, refreshInterval);
+
+  // この部分を追加
+  useEffect(() => {
+    // idがqueryで利用可能になったら処理される
+    if (router.asPath !== router.route) {
+      setId(Number(router.query.id));
+    }
+  }, [router]);
+
+  // idが取得されてセットされたら処理される
+  useEffect(() => {
+    if (id) {
+      setRefreshInterval(0);
+    }
+  }, [id]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (isEmpty) {
+    return null;
+  }
 
   //レビュー押下時処理
   const onClickModal = () => {
@@ -32,24 +57,24 @@ const Movie: NextPage = () => {
         closeButton={<CloseButton onClick={onClickModal} />}
         modalOpen={modalReview}
         setModalOpen={setmodalReview}
-        movie={movie}
+        movie={data}
         watchedFlg={watchedFlg}
         setWatchedFlg={setWatchedFlg}
       />
       <SBody>
         <DetailArea>
           <DetailImage
-            movie={movie}
+            movie={data}
             watchedFlg={watchedFlg}
             setWatchedFlg={setWatchedFlg}
             setmodalReview={setmodalReview}
           />
           <DetailInfo
-            title={movie.title}
-            release_date={movie.release_date}
-            vote_average={movie.vote_average}
-            overview={movie.overview}
-            id={movie.id}
+            title={data.title}
+            release_date={data.release_date}
+            vote_average={data.vote_average}
+            overview={data.overview}
+            id={data.id}
           />
         </DetailArea>
       </SBody>

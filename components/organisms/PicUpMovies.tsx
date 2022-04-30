@@ -28,8 +28,8 @@ export const PicUpMovies = memo((props: Props) => {
 
   const onClickMore = () => {
     router.push({
-      pathname: `/home/${pattern.key}&page=1`,
-      query: pattern.key,
+      pathname: `/home/movielist/${pattern.key}&page=1`,
+      query: { key: `${pattern.key}&page=1` },
     });
   };
 

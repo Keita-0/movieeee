@@ -20,11 +20,13 @@ export const Header = () => {
   const [homeActive, setHomeActive] = useState(false);
   const [myPageAvtive, setMyPageAvtive] = useState(false);
 
-  if (router.pathname === "/home") {
-    setHomeActive(true);
-  } else if (router.pathname === "/home/mypage") {
-    setMyPageAvtive(true);
-  }
+  useEffect(() => {
+    if (router.pathname === "/home") {
+      setHomeActive(true);
+    } else if (router.pathname === "/home/mypage") {
+      setMyPageAvtive(true);
+    }
+  }, [homeActive]);
 
   const [isSignedIn, setIsSignedIn] = useRecoilState(loginFlg);
   const onClickHome = useCallback(() => {
@@ -32,17 +34,17 @@ export const Header = () => {
   }, []);
   const onClickMypage = useCallback(() => router.push("/home/mypage"), []);
 
-  const auth = getAuth();
-  const onClickSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        setIsSignedIn(false);
-        router.push("/");
-      })
-      .catch((error) => {
-        console.log("Sign-out error.");
-      });
-  };
+  // const auth = getAuth();
+  // const onClickSignOut = () => {
+  //   signOut(auth)
+  //     .then(() => {
+  //       setIsSignedIn(false);
+  //       router.push("/");
+  //     })
+  //     .catch((error) => {
+  //       console.log("Sign-out error.");
+  //     });
+  // };
 
   return (
     <SHeader>
@@ -57,7 +59,8 @@ export const Header = () => {
       </SContainer>
       <UserContainer>
         <Search />
-        <SingOut onClick={onClickSignOut}>サインアウト</SingOut>
+        <SingOut>サインアウト</SingOut>
+        {/* <SingOut onClick={onClickSignOut}>サインアウト</SingOut> */}
       </UserContainer>
 
       <NavBar />

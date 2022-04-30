@@ -21,7 +21,12 @@ export const Search = memo(() => {
 
   const onClickSearch = () => {
     if (checkKeyWord(keyWord)) {
-      router.push(`/home/search=${keyWord}&page=1`);
+      router.push({
+        pathname: `/home/movielist/search=${keyWord}&page=1`,
+        query: {
+          key: 1,
+        },
+      });
     }
     setKeyWord("");
   };
