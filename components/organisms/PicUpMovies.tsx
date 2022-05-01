@@ -88,5 +88,5 @@ const MovieCardArea = styled.div`
 
 const MovieListArea = styled.div`
   width: 70%;
-  margin-bottom: 4%;
+  margin-bottom: 2%;
 `;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
 
+// eslint-disable-next-line react/display-name
 export const Search = memo(() => {
   const [keyWord, setKeyWord] = useState("");
   const router = useRouter();
@@ -45,7 +46,10 @@ export const Search = memo(() => {
           onChange={onChangeKeyWord}
         />
         <InputSubmit type="submit" onClick={onClickSearch}>
-          <Icon src="../../icon/検索アイコン1.png" />
+          <Icon
+            src="
+          /検索アイコン1.png"
+          />
         </InputSubmit>
       </SFrom>
     </>

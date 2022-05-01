@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Loading } from "../atoms/Loading";
 import { getData } from "../../hooks/useFireStore";
-import { MovieCard } from "./MovieCard";
+import { MovieCard } from "../../components/molecules/MovieCard";
 
 type Movie = {
   id: number;

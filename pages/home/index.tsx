@@ -5,7 +5,7 @@ import { PicUpMovies } from "../../components/organisms/PicUpMovies";
 
 const Patterns = [
   { key: "now_playing", word: "上映中" },
-  { key: "popular", word: "人気" },
+  // { key: "popular", word: "人気" },
   { key: "top_rated", word: "評価が高い" },
   { key: "upcoming", word: "上映予定" },
 ];

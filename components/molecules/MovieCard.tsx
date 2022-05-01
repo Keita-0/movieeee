@@ -70,9 +70,9 @@ const SCard = styled.div<CardProps>`
   background-color: #fff;
   box-shadow: #ddd 0px 0px 4px 2px;
   border-radius: 8px;
-  width: ${(props) => (props.isSmall ? 8 : 13)}rem;
-  height: ${(props) => (props.isSmall ? 15 : 22.5)}rem;
-  padding-top: 1rem;
+  width: ${(props) => (props.isSmall ? 8 : 15)}rem;
+  height: ${(props) => (props.isSmall ? 15 : 25)}rem;
+  padding: 1rem 0.5rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -94,10 +94,15 @@ const STitle = styled.h2<TitleProps>`
       ? css`
           display: none;
         `
-      : css``};
+      : css`
+          display: -webkit-box;
+        `};
   margin-top: 1.2rem;
   font-size: 1.5vmin;
   text-align: center;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 
   ${sp`
       display:none;

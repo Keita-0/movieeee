@@ -12,6 +12,7 @@ type Props = {
   isMaxPage: boolean;
 };
 
+// eslint-disable-next-line react/display-name
 export const PageNation = React.memo((props: Props) => {
   const {
     isSearch,

@@ -26,25 +26,25 @@ export const Header = () => {
     } else if (router.pathname === "/home/mypage") {
       setMyPageAvtive(true);
     }
-  }, [homeActive]);
+  }, []);
 
   const [isSignedIn, setIsSignedIn] = useRecoilState(loginFlg);
   const onClickHome = useCallback(() => {
     router.push("/home");
   }, []);
-  const onClickMypage = useCallback(() => router.push("/home/mypage"), []);
+  const onClickMypage = useCallback(() => router.push("/mypage"), []);
 
-  // const auth = getAuth();
-  // const onClickSignOut = () => {
-  //   signOut(auth)
-  //     .then(() => {
-  //       setIsSignedIn(false);
-  //       router.push("/");
-  //     })
-  //     .catch((error) => {
-  //       console.log("Sign-out error.");
-  //     });
-  // };
+  const auth = getAuth();
+  const onClickSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        setIsSignedIn(false);
+        router.push("/");
+      })
+      .catch((error) => {
+        console.log("Sign-out error.");
+      });
+  };
 
   return (
     <SHeader>
@@ -59,8 +59,7 @@ export const Header = () => {
       </SContainer>
       <UserContainer>
         <Search />
-        <SingOut>サインアウト</SingOut>
-        {/* <SingOut onClick={onClickSignOut}>サインアウト</SingOut> */}
+        <SingOut onClick={onClickSignOut}>サインアウト</SingOut>
       </UserContainer>
 
       <NavBar />
