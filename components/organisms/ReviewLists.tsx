@@ -34,7 +34,7 @@ export const ReviewLists = () => {
     <MovieCardArea>
       {reviews
         ? reviews.map((review: TypeReview) => {
-            return <Review review={review} />;
+            return <Review key={review.id} review={review} />;
           })
         : null}
     </MovieCardArea>

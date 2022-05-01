@@ -11,7 +11,7 @@ type TypeReview = {
     photo: string;
   };
 };
-
+// eslint-disable-next-line react/display-name
 export const Review = memo((props: TypeReview) => {
   const { review } = props;
 

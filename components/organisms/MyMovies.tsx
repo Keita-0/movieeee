@@ -33,7 +33,7 @@ export const MyMovies = () => {
     <MovieCardArea>
       {movies
         ? movies.map((movie: Movie) => {
-            return <MovieCard movie={movie} isSmall={true} />;
+            return <MovieCard key={movie.id} movie={movie} isSmall={true} />;
           })
         : null}
     </MovieCardArea>
