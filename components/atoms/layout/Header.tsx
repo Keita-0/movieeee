@@ -1,13 +1,13 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { NavBar } from "../../organisms/NavBar";
 import "../../../Firebase/firebase";
-import { getAuth, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { Search } from "../../molecules/Search";
 import { useRouter } from "next/router";
 import { sp } from "../../../utils/Media";
-import { useRecoilState } from "recoil";
-import { loginFlg } from "../../../store/movieSearchState";
+import { auth } from "../../../Firebase/firebase";
+import toast from "react-hot-toast";
 
 type Props = {
   active: boolean;
@@ -16,33 +16,26 @@ type Props = {
 
 export const Header = () => {
   const router = useRouter();
-
   const [homeActive, setHomeActive] = useState(false);
   const [myPageAvtive, setMyPageAvtive] = useState(false);
 
   useEffect(() => {
     if (router.pathname === "/home") {
       setHomeActive(true);
-    } else if (router.pathname === "/home/mypage") {
+      setMyPageAvtive(false);
+    } else if (router.pathname === "/mypage") {
+      setHomeActive(false);
       setMyPageAvtive(true);
     }
-  }, []);
+  }, [router.pathname]);
 
-  const [isSignedIn, setIsSignedIn] = useRecoilState(loginFlg);
-  const onClickHome = useCallback(() => {
-    router.push("/home");
-  }, []);
-  const onClickMypage = useCallback(() => router.push("/mypage"), []);
-
-  const auth = getAuth();
   const onClickSignOut = () => {
     signOut(auth)
       .then(() => {
-        setIsSignedIn(false);
         router.push("/");
       })
-      .catch((error) => {
-        console.log("Sign-out error.");
+      .catch(() => {
+        toast.error("サインアウトに失敗しました。");
       });
   };
 
@@ -50,10 +43,20 @@ export const Header = () => {
     <SHeader>
       <STitile>Moiveeee</STitile>
       <SContainer>
-        <SLink onClick={onClickHome} active={homeActive}>
+        <SLink
+          onClick={() => {
+            router.push("/home");
+          }}
+          active={homeActive}
+        >
           Home
         </SLink>
-        <SLink onClick={onClickMypage} active={myPageAvtive}>
+        <SLink
+          onClick={() => {
+            router.push("/mypage");
+          }}
+          active={myPageAvtive}
+        >
           MyPage
         </SLink>
       </SContainer>

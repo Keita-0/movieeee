@@ -1,36 +1,37 @@
-import { atom } from 'recoil';
-import { AlertType, SearchMovieType } from '../types/SearchMovie';
+import { atom } from "recoil";
+import { AlertType, SearchMovieType } from "../types/SearchMovie";
 
 export const movieSearchState = atom<string>({
-  key: 'movieSearchState',
-  default: '',
+  key: "movieSearchState",
+  default: "",
 });
 
 export const searchState = atom<SearchMovieType>({
-  key: 'searchState',
+  key: "searchState",
   default: {
-    query: '',
+    query: "",
     page: 1,
-    language: 'ja-JA',
-    api_key: '36281c7271c65f50477f77ca7b16573a',
+    language: "ja-JA",
+    api_key: "36281c7271c65f50477f77ca7b16573a",
   },
 });
 
-export const loginFlg = atom<boolean>({
-  key: 'loginFlg',
-  default: false,
+export const signInUserState = atom({
+  key: "auth/signIn",
+  default: {
+    uid: "",
+  },
 });
-
 export const searchFlg = atom<boolean>({
-  key: 'searchFlg',
+  key: "searchFlg",
   default: false,
 });
 
 export const alertFlg = atom<AlertType>({
-  key: 'alertFlg',
+  key: "alertFlg",
   default: {
     isAlert: false,
-    alertMsg: '',
+    alertMsg: "",
     alertKind: 0,
   },
 });

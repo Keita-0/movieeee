@@ -1,27 +1,23 @@
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "@firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "@firebase/auth";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { loginFlg } from "../store/movieSearchState";
 import { sp } from "../utils/Media";
 import "../Firebase/firebase";
+import toast from "react-hot-toast";
+import { auth } from "../Firebase/firebase";
 
 const Login: NextPage = () => {
-  const [isSignedIn, setIsSignedIn] = useRecoilState(loginFlg);
   const router = useRouter();
   const provider = new GoogleAuthProvider();
-  provider.addScope("https://www.googleapis.com/auth/calendar.events");
-  const auth = getAuth();
 
-  const signIn = () => {
+  const signIn = async () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        setIsSignedIn(true);
         router.push("/home");
       })
       .catch((error) => {
-        alert("認証に失敗しました。");
+        toast.error("ログインに失敗しました。");
       });
   };
 
