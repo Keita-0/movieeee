@@ -26,9 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <RecoilRoot>
       <DefaultLayout>
         <Toaster />
-        <Auth>
-          <Component {...pageProps} />
-        </Auth>
+        <Component {...pageProps} />
       </DefaultLayout>
     </RecoilRoot>
   );
