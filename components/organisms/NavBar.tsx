@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { pc, sp, tab } from "../../utils/Media";
 import styled, { css } from "styled-components";
 import { useRouter } from "next/router";
