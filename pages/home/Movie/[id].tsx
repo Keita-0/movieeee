@@ -15,7 +15,7 @@ const Movie: NextPage = () => {
   const router = useRouter();
 
   //stateの管理
-  const [refreshInterval, setRefreshInterval] = useState(0);
+  const [refreshInterval, setRefreshInterval] = useState(1000);
   const [watchedFlg, setWatchedFlg] = useState<boolean>(false);
   const [modalReview, setmodalReview] = useState<boolean>(false);
   const [id, setId] = useState<number | undefined>();

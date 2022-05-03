@@ -37,7 +37,7 @@ export const MovieCard = memo((props: Props) => {
 
   //カード押下時処理
   const onClickCard = () => {
-    router.push(`/home/movie/${movie.id}`);
+    router.replace(`/home/movie/${movie.id}`);
   };
 
   return (
