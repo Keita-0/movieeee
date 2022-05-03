@@ -20,7 +20,7 @@ const Movie: NextPage = () => {
   const [modalReview, setmodalReview] = useState<boolean>(false);
   const [id, setId] = useState<number | undefined>();
 
-  const { data, isLoading, isEmpty } = getMovie(id, refreshInterval);
+  const { data, error, isLoading, isEmpty } = getMovie(id, refreshInterval);
 
   // この部分を追加
   useEffect(() => {
