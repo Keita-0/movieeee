@@ -1,12 +1,9 @@
 import { getAuth } from "@firebase/auth";
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 import { useState } from "react";
 import styled, { css } from "styled-components";
 import { MyMovies } from "../../components/organisms/MyMovies";
 import { ReviewLists } from "../../components/organisms/ReviewLists";
-import styles from "../../styles/Home.module.css";
 
 type Props = {
   focus: boolean;
@@ -27,12 +24,6 @@ const MyPage: NextPage = () => {
 
   return (
     <Body>
-      <ProfileArea>
-        <Icon src={`${auth.currentUser?.photoURL}`} />
-        <h3>{auth.currentUser?.displayName}</h3>
-        <Sp>ブックマーク：件</Sp>
-        <Sp>レビュー：件</Sp>
-      </ProfileArea>
       <Container>
         <TabArea>
           <Tab focus={isBookMarkFocus} onClick={onClickBookMarkFocus}>
@@ -66,42 +57,20 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 60%;
+  width: 80%;
   height: 100%;
   margin: 2%;
+  padding: 0 3vw;
 `;
 
 const TabArea = styled.div`
   display: flex;
   flex-direction: row;
-  /* background-color: rgba(230, 230, 230, 0.5); */
   padding: 10px;
-`;
-
-const ProfileArea = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2%;
-  height: 20%;
-  padding: 25px 40px;
-  border-radius: 10%;
-  box-shadow: #ddd 0px 0px 4px 2px;
 `;
 
 const MovieArea = styled.div`
   height: 100%;
-`;
-
-const Icon = styled.img`
-  height: 7vh;
-  margin-right: 2%;
-  border-radius: 100%;
-`;
-
-const Sp = styled.p`
-  margin-top: 2px;
-  margin-bottom: 2px;
 `;
 
 const Label = styled.h4`
@@ -122,6 +91,10 @@ const Tab = styled.div<Props>`
   width: 20%;
   padding: 3px 10px;
   margin-right: 3vw;
+
+  @media (min-width: 561px) and (max-width: 1024px) {
+    width: 30%;
+  }
 
   ${(props) =>
     props.focus

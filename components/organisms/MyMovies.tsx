@@ -29,14 +29,20 @@ export const MyMovies = () => {
     return <Loading />;
   }
 
+  console.log(movies?.length);
+
   return (
-    <MovieCardArea>
-      {movies
-        ? movies.map((movie: Movie) => {
+    <>
+      {movies?.length !== 0 && typeof movies !== "undefined" ? (
+        <MovieCardArea>
+          {movies.map((movie: Movie) => {
             return <MovieCard key={movie.id} movie={movie} isSmall={true} />;
-          })
-        : null}
-    </MovieCardArea>
+          })}
+        </MovieCardArea>
+      ) : (
+        <p>ブックマークしている映画はありません。</p>
+      )}
+    </>
   );
 };
 
@@ -47,5 +53,5 @@ const MovieCardArea = styled.div`
   display: grid;
   place-items: center;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  grid-gap: 30px 20px;
+  grid-gap: 2vw 0.5vw;
 `;

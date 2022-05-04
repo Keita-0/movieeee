@@ -83,10 +83,13 @@ const MovieCardArea = styled.div`
   display: grid;
   place-items: center;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  grid-gap: 10px 20px;
+  grid-gap: 2vw 1vw;
 `;
 
 const MovieListArea = styled.div`
   width: 70%;
-  margin-bottom: 2%;
+  @media (min-width: 561px) and (max-width: 1024px) {
+    width: 80%;
+  }
+  margin-bottom: 4rem;
 `;

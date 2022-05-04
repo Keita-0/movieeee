@@ -2,7 +2,7 @@ import { GoogleAuthProvider, signInWithPopup } from "@firebase/auth";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import { sp } from "../utils/Media";
+import { sp, tab } from "../utils/Media";
 import "../Firebase/firebase";
 import toast from "react-hot-toast";
 import { auth } from "../Firebase/firebase";
@@ -25,10 +25,10 @@ const Login: NextPage = () => {
     <Container>
       <Card>
         <Sh1>Welcome to Movieeee!!</Sh1>
-        <h3>~新しい映画に出会いましょう~</h3>
+        <Sp>~新しい映画に出会いましょう~</Sp>
         <SDiv onClick={signIn}>
           <SImg src="/icons8-googleのロゴ-48.png" alt="icon" />
-          <p>Sign in with Google</p>
+          <Sp>Sign in with Google</Sp>
         </SDiv>
       </Card>
     </Container>
@@ -47,20 +47,28 @@ const Container = styled.div`
 
 const Card = styled.div`
   position: relative;
-  width: 25%;
+  width: 30vw;
   height: 60%;
   padding: 4%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 5%;
+  border-radius: 10px;
   background-color: white;
   box-shadow: #ddd 0px 0px 4px 2px;
+
+  ${sp`
+        width:70vw;
+    `}
+  ${tab`
+        width:40vw;
+    `}
 `;
 
 const Sh1 = styled.h1`
   margin: 0;
+  font-size: 2rem;
 `;
 
 const SDiv = styled.div`
@@ -80,6 +88,10 @@ const SDiv = styled.div`
   ${sp`
         width:50vw;
     `}
+`;
+
+const Sp = styled.p`
+  font-size: 1rem;
 `;
 
 const SImg = styled.img`

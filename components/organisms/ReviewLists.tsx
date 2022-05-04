@@ -31,13 +31,17 @@ export const ReviewLists = () => {
   }
 
   return (
-    <MovieCardArea>
-      {reviews
-        ? reviews.map((review: TypeReview) => {
+    <>
+      {reviews?.length !== 0 && typeof reviews !== "undefined" ? (
+        <MovieCardArea>
+          {reviews.map((review: TypeReview) => {
             return <Review key={review.id} review={review} />;
-          })
-        : null}
-    </MovieCardArea>
+          })}
+        </MovieCardArea>
+      ) : (
+        <p>レビューしている映画はありません。</p>
+      )}
+    </>
   );
 };
 

@@ -5,16 +5,21 @@ import { Toaster } from "react-hot-toast";
 import { RecoilRoot } from "recoil";
 import { useAuth } from "../Firebase/authFunctions";
 import { useRouter } from "next/router";
+import { Loading } from "../components/atoms/Loading";
 
 type Props = {
   children: JSX.Element;
 };
 
 const Auth = ({ children }: Props): JSX.Element => {
-  const signInUser = useAuth();
+  const result = useAuth();
   const router = useRouter();
 
-  return router.pathname === "/" || signInUser.uid ? (
+  if (router.pathname !== "/" && result.isLoading) {
+    return <Loading />;
+  }
+
+  return router.pathname === "/" || result.signInUser.uid ? (
     children
   ) : (
     <p>サインインしてください...</p>
@@ -26,7 +31,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <RecoilRoot>
       <DefaultLayout>
         <Toaster />
-        <Component {...pageProps} />
+        <Auth>
+          <Component {...pageProps} />
+        </Auth>
       </DefaultLayout>
     </RecoilRoot>
   );

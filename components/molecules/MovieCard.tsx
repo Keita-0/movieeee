@@ -67,12 +67,6 @@ export const MovieCard = memo((props: Props) => {
 });
 
 const SCard = styled.div<CardProps>`
-  background-color: #fff;
-  box-shadow: #ddd 0px 0px 4px 2px;
-  border-radius: 8px;
-  width: ${(props) => (props.isSmall ? 8 : 15)}rem;
-  height: ${(props) => (props.isSmall ? 15 : 25)}rem;
-  padding: 1rem 0.5rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -81,11 +75,26 @@ const SCard = styled.div<CardProps>`
     cursor: pointer;
     opacity: 80%;
   }
+  background-color: #fff;
+  box-shadow: #ddd 0px 0px 1px 1px;
+  border-radius: 8px;
+  width: ${(props) => (props.isSmall ? 8 : 15)}rem;
+  height: ${(props) => (props.isSmall ? 15 : 25)}rem;
+  padding: 1rem 1rem;
+
+  @media (min-width: 561px) and (max-width: 1024px) {
+    width: ${(props) => (props.isSmall ? 8 : 15)}rem;
+    height: ${(props) => (props.isSmall ? 14 : 23)}rem;
+    padding: 1rem 0.5rem;
+  }
 `;
 
 const SIMG = styled.img<ImgProps>`
-  height: ${(props) => (props.isSmall ? 18 : 25)}vh;
+  height: ${(props) => (props.isSmall ? 18 : 27)}vh;
   margin-bottom: 10px;
+  @media (min-width: 561px) and (max-width: 1024px) {
+    height: ${(props) => (props.isSmall ? 14 : 20)}vh;
+  }
 `;
 
 const STitle = styled.h2<TitleProps>`
@@ -101,15 +110,15 @@ const STitle = styled.h2<TitleProps>`
   font-size: 1.5vmin;
   text-align: center;
   overflow: hidden;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-
+  margin-bottom: 10px;
   ${sp`
       display:none;
     `}
-  ${tab`
-      font-size: 0.01vw;
-    `}
+  @media (min-width: 561px) and (max-width: 1024px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const ImgDiv = styled.div`

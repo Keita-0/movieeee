@@ -1,6 +1,6 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "@firebase/auth";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { auth } from "../Firebase/firebase";
 import { signInUserState } from "../store/movieSearchState";
@@ -11,6 +11,7 @@ import { signInUserState } from "../store/movieSearchState";
 export const useAuth = () => {
   const [signInUser, setSignInUser] = useRecoilState(signInUserState);
   const resetStatus = useResetRecoilState(signInUserState);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     const unSub = auth.onAuthStateChanged((authUser) => {
@@ -21,9 +22,10 @@ export const useAuth = () => {
       } else {
         resetStatus();
       }
+      setLoading(false);
     });
     return () => unSub();
   }, [setSignInUser, resetStatus]);
 
-  return signInUser;
+  return { signInUser, isLoading };
 };

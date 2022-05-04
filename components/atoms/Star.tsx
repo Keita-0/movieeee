@@ -20,6 +20,9 @@ export const Star = (props: Props) => {
 const SDiv = styled.div`
   display: flex;
   align-items: center;
+  ${sp`
+        display:none;
+    `}
 `;
 
 const StarRating = styled.div<Props>`
