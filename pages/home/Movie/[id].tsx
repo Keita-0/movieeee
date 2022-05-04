@@ -97,5 +97,8 @@ const DetailArea = styled.div`
   @media (min-width: 561px) and (max-width: 1024px) {
     width: 90%;
   }
+  @media (max-width: 560px) {
+    width: 95%;
+  }
 `;
 export default Movie;

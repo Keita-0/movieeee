@@ -26,6 +26,9 @@ const Body = styled.div`
   flex-direction: column;
   padding: 1.5rem 2rem;
   margin-bottom: 5vh;
+  @media (max-width: 560px) {
+    padding: 1.5rem 1.5rem;
+  }
 `;
 
 export default Home;

@@ -20,9 +20,6 @@ export const Star = (props: Props) => {
 const SDiv = styled.div`
   display: flex;
   align-items: center;
-  ${sp`
-        display:none;
-    `}
 `;
 
 const StarRating = styled.div<Props>`
@@ -32,6 +29,10 @@ const StarRating = styled.div<Props>`
   white-space: nowrap;
   color: #cccccc;
   font-size: ${(props) => (props.size ? props.size : 0)}%;
+
+  @media (max-width: 560px) {
+    font-size: ${(props) => (props.size ? props.size * 0.5 : 0)}%;
+  }
 
   ::before,
   ::after {

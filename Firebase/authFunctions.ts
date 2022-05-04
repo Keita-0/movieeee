@@ -1,5 +1,3 @@
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "@firebase/auth";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { auth } from "../Firebase/firebase";

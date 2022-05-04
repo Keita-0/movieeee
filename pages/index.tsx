@@ -43,6 +43,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #eeeeee;
+  z-index: 10;
 `;
 
 const Card = styled.div`
@@ -58,12 +59,11 @@ const Card = styled.div`
   background-color: white;
   box-shadow: #ddd 0px 0px 4px 2px;
 
-  ${sp`
-        width:70vw;
-    `}
-  ${tab`
-        width:40vw;
-    `}
+  @media (max-width: 560px) {
+    width: 80vw;
+    height: 60%;
+    padding: 8%;
+  }
 `;
 
 const Sh1 = styled.h1`

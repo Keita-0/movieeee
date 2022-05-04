@@ -143,9 +143,9 @@ const Body = styled.div`
   flex-direction: column;
   padding: 1.5rem 2rem;
   margin-bottom: 5vh;
-  ${sp`
-        padding: 0.7rem;
-    `}
+  @media (max-width: 560px) {
+    padding: 1rem 0.2rem;
+  }
 `;
 
 const LabelContainer = styled.div`
@@ -169,6 +169,9 @@ const SLabel = styled.label`
   padding-right: 2%;
   border-bottom: 2px solid #cccccc;
   font-weight: bold;
+  @media (max-width: 560px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const MovieCardArea = styled.div`
@@ -178,11 +181,18 @@ const MovieCardArea = styled.div`
   place-items: center;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   grid-gap: 30px 20px;
+  @media (max-width: 560px) {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    grid-gap: 2vw 1vw;
+  }
 `;
 
 const MovieListArea = styled.div`
   width: 90%;
   margin-bottom: 2%;
+  @media (max-width: 560px) {
+    width: 100%;
+  }
 `;
 
 export default MovieList;

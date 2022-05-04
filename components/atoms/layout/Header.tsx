@@ -64,7 +64,6 @@ export const Header = () => {
         <Search />
         <SingOut onClick={onClickSignOut}>サインアウト</SingOut>
       </UserContainer>
-
       <NavBar />
     </SHeader>
   );
@@ -85,6 +84,9 @@ const SContainer = styled.div`
   align-items: center;
   margin-left: 5vw;
   width: 50%;
+  @media (max-width: 560px) {
+    display: none;
+  }
 `;
 
 const STitile = styled.div`
@@ -117,6 +119,9 @@ const UserContainer = styled.div`
   justify-content: end;
   margin-right: 1rem;
   align-items: center;
+  @media (max-width: 560px) {
+    display: none;
+  }
 `;
 
 const SingOut = styled.div`

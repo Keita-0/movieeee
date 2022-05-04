@@ -87,6 +87,11 @@ const SCard = styled.div<CardProps>`
     height: ${(props) => (props.isSmall ? 14 : 23)}rem;
     padding: 1rem 0.5rem;
   }
+  @media (max-width: 560px) {
+    width: 5rem;
+    height: 8rem;
+    padding: 0.4rem 0.2rem;
+  }
 `;
 
 const SIMG = styled.img<ImgProps>`
@@ -94,6 +99,9 @@ const SIMG = styled.img<ImgProps>`
   margin-bottom: 10px;
   @media (min-width: 561px) and (max-width: 1024px) {
     height: ${(props) => (props.isSmall ? 14 : 20)}vh;
+  }
+  @media (max-width: 560px) {
+    height: 11vh;
   }
 `;
 

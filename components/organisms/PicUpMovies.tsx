@@ -84,12 +84,19 @@ const MovieCardArea = styled.div`
   place-items: center;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   grid-gap: 2vw 1vw;
+  @media (max-width: 560px) {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    grid-gap: 2vw 1vw;
+  }
 `;
 
 const MovieListArea = styled.div`
   width: 70%;
   @media (min-width: 561px) and (max-width: 1024px) {
     width: 80%;
+  }
+  @media (max-width: 560px) {
+    width: 100%;
   }
   margin-bottom: 4rem;
 `;

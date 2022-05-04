@@ -2,6 +2,11 @@ import { useState } from "react";
 import { pc, sp, tab } from "../../utils/Media";
 import styled, { css } from "styled-components";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import { backfaceFixed } from "../../utils/backfaceFixed";
+import { signOut } from "@firebase/auth";
+import { auth } from "../../Firebase/firebase";
+import toast from "react-hot-toast";
 
 export const NavBar = () => {
   const router = useRouter();
@@ -10,7 +15,19 @@ export const NavBar = () => {
 
   const isMenuOpen = () => {
     setMenuOpen(!menuOpen);
+    backfaceFixed(true);
   };
+
+  const onClickSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        router.push("/");
+      })
+      .catch(() => {
+        toast.error("サインアウトに失敗しました。");
+      });
+  };
+
   return (
     <SContainer>
       <MenuButton onClick={isMenuOpen} isOpen={menuOpen}>
@@ -21,13 +38,40 @@ export const NavBar = () => {
       <Sdiv isOpen={menuOpen}>
         <ul>
           <li>
-            <a href="#">メニューリンク1</a>
+            <Link href="/home">
+              <a
+                onClick={() => {
+                  setMenuOpen(false);
+                  backfaceFixed(false);
+                }}
+              >
+                Home
+              </a>
+            </Link>
           </li>
           <li>
-            <a href="#">メニューリンク2</a>
+            <Link href="/mypage">
+              <a
+                onClick={() => {
+                  setMenuOpen(false);
+                  backfaceFixed(false);
+                }}
+              >
+                MyPage
+              </a>
+            </Link>
           </li>
           <li>
-            <a href="#">メニューリンク3</a>
+            <Link href="/">
+              <a
+                onClick={() => {
+                  onClickSignOut();
+                  backfaceFixed(false);
+                }}
+              >
+                サインアウト
+              </a>
+            </Link>
           </li>
         </ul>
       </Sdiv>
@@ -46,10 +90,14 @@ const SContainer = styled.div`
   ${tab`
         display:none;
     `}
+  width:100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 `;
 
 const MenuButton = styled.div<CustomProps>`
-  z-index: 100;
+  z-index: 2;
   & span {
     position: absolute;
     left: 0;
@@ -60,7 +108,7 @@ const MenuButton = styled.div<CustomProps>`
     display: inline-block;
     transition: all 0.1s;
     box-sizing: border-box;
-    z-index: 10;
+    z-index: 1;
   }
   :hover {
     cursor: pointer;
@@ -73,7 +121,6 @@ const MenuButton = styled.div<CustomProps>`
   background: none;
   border: none;
   appearance: none;
-  margin-top: 20px;
   margin-right: 10px;
 
   ${(props) =>
@@ -108,21 +155,22 @@ const Sdiv = styled.div<CustomProps>`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 80;
-  opacity: 80%;
+  z-index: 8;
+  opacity: 97%;
   background-color: #eeeeee;
   & ul {
-    padding: 70px 10px 0;
+    padding: 70px 10px;
   }
 
   & ul li {
     border-bottom: solid 1px #ffffff;
     list-style: none;
+    padding: 10px 10px;
   }
 
   & ul li a {
     width: 100%;
-    font-size: 15px;
+    font-size: 20px;
     box-sizing: border-box;
     color: black;
     text-decoration: none;

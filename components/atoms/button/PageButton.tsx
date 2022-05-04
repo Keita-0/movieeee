@@ -23,4 +23,7 @@ const SButton = styled.button`
     cursor: pointer;
     opacity: 60%;
   }
+  @media (max-width: 560px) {
+    font-size: 10px;
+  }
 `;

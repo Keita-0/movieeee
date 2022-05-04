@@ -43,6 +43,9 @@ const InfoArea = styled.div`
   font-weight: bold;
   font-size: 2vh;
   padding: 0 2vh;
+  @media (max-width: 560px) {
+    padding: 0 1vh;
+  }
   width: 100%;
 `;
 
@@ -52,10 +55,16 @@ const Titile = styled.h2`
   @media (min-width: 561px) and (max-width: 1024px) {
     font-size: 1.5rem;
   }
+  @media (max-width: 560px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const Sp = styled.p`
   font-size: 15px;
+  @media (max-width: 560px) {
+    font-size: 8px;
+  }
 `;
 
 const SDiv = styled.div`

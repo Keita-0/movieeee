@@ -121,11 +121,17 @@ const SIMG = styled.img`
   @media (min-width: 561px) and (max-width: 1024px) {
     height: 20vh;
   }
+  @media (max-width: 560px) {
+    height: 20vh;
+  }
 `;
 
 const IcomImg = styled.img`
   width: 2vw;
   margin-right: 1vw;
+  @media (max-width: 560px) {
+    width: 5vw;
+  }
 `;
 
 const Trim = styled.div`
@@ -138,6 +144,10 @@ const Trim = styled.div`
   @media (min-width: 561px) and (max-width: 1024px) {
     width: 180px;
     height: 270px;
+  }
+  @media (max-width: 560px) {
+    width: 110px;
+    height: 170px;
   }
 `;
 
@@ -156,11 +166,19 @@ const MovieButton = styled.div`
     padding-left: 20%;
     margin-bottom: 2px;
   }
+  @media (max-width: 560px) {
+    padding: 10px;
+    padding-left: 10%;
+    margin-bottom: 2px;
+  }
 `;
 
 const Label = styled.h4`
   margin: 0;
   @media (min-width: 561px) and (max-width: 1024px) {
     font-size: 1rem;
+  }
+  @media (max-width: 560px) {
+    font-size: 0.4rem;
   }
 `;
