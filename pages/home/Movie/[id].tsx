@@ -94,5 +94,8 @@ const DetailArea = styled.div`
   flex-direction: row;
   width: 70%;
   padding-top: 3vh;
+  @media (min-width: 561px) and (max-width: 1024px) {
+    width: 90%;
+  }
 `;
 export default Movie;

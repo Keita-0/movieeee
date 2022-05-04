@@ -125,4 +125,7 @@ const SingOut = styled.div`
     cursor: pointer;
     color: #0066ff;
   }
+  @media (min-width: 561px) and (max-width: 1024px) {
+    font-size: 0.8rem;
+  }
 `;

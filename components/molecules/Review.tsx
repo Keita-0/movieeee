@@ -19,7 +19,7 @@ export const Review = memo((props: TypeReview) => {
     <SCard key={review.id}>
       <div>
         <SIMG
-          src={review.photo ? review.photo : "../../icon/20200506_noimage.png"}
+          src={review.photo ? review.photo : "/icon/20200506_noimage.png"}
         />
       </div>
       <InfoArea>
@@ -43,10 +43,9 @@ export const Review = memo((props: TypeReview) => {
 const SCard = styled.div`
   display: flex;
   flex-direction: row;
-  box-shadow: 0 4px 10px rgb(0 0 0 / 5%), 0 0 1px rgb(0 0 0 / 10%);
-
+  box-shadow: #ddd 0px 0px 1px 1px;
   width: 100%;
-  background-color: #eeeeee;
+  background-color: #fff;
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 10px;
@@ -56,19 +55,26 @@ const SCard = styled.div`
 const InfoArea = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 3vh;
+  margin: 0.5vh 2vh;
 `;
 
 const SIMG = styled.img`
   height: 30vh;
+  @media (min-width: 561px) and (max-width: 1024px) {
+    height: 20vh;
+  }
 `;
 
 const STitle = styled.h2`
   margin-top: 0;
+  @media (min-width: 561px) and (max-width: 1024px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const SLabel = styled.p`
   font-weight: bold;
+  margin-bottom: 3px;
 `;
 
 const Sp = styled.p`

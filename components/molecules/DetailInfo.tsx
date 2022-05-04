@@ -49,6 +49,9 @@ const InfoArea = styled.div`
 const Titile = styled.h2`
   margin-top: 0;
   margin-bottom: 0;
+  @media (min-width: 561px) and (max-width: 1024px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Sp = styled.p`

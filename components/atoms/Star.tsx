@@ -61,7 +61,4 @@ const Sp = styled.label<Props>`
   ${sp`
         display:none;
     `}
-  ${tab`
-        display:none;
-    `}
 `;

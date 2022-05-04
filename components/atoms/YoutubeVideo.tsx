@@ -1,5 +1,4 @@
-import React, { memo, useEffect } from "react";
-import YouTube from "react-youtube";
+import React, { memo } from "react";
 import styled from "styled-components";
 import { getVideo } from "../../hooks/useFetchArray";
 import { Loading } from "./Loading";
@@ -36,5 +35,8 @@ const VideoLabel = styled.h3`
 
 const VideoArea = styled.div`
   width: 100%;
-  margin-top: 6vh;
+  /* margin-top: 6vh;
+  @media (min-width: 561px) and (max-width: 1024px) {
+    font-size: 1.5rem;
+  } */
 `;

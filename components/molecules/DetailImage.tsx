@@ -105,6 +105,9 @@ export const DetailImage = memo((props: Props) => {
 
 const Container = styled.div`
   margin-right: 2vw;
+  @media (min-width: 561px) and (max-width: 1024px) {
+    margin-right: 0.1vw;
+  }
 `;
 
 const IcomContainer = styled.div`
@@ -115,10 +118,12 @@ const IcomContainer = styled.div`
 
 const SIMG = styled.img`
   height: 40vh;
+  @media (min-width: 561px) and (max-width: 1024px) {
+    height: 20vh;
+  }
 `;
 
 const IcomImg = styled.img`
-  /* height: 2vh; */
   width: 2vw;
   margin-right: 1vw;
 `;
@@ -127,9 +132,13 @@ const Trim = styled.div`
   overflow: hidden;
   display: flex;
   justify-content: center;
-  width: 240px; /* トリミングしたい枠の幅 */
-  height: 360px; /* トリミングしたい枠の高さ */
+  width: 240px;
+  height: 360px;
   position: relative;
+  @media (min-width: 561px) and (max-width: 1024px) {
+    width: 180px;
+    height: 270px;
+  }
 `;
 
 const MovieButton = styled.div`
@@ -142,8 +151,16 @@ const MovieButton = styled.div`
   :hover {
     cursor: pointer;
   }
+  @media (min-width: 561px) and (max-width: 1024px) {
+    padding: 10px;
+    padding-left: 20%;
+    margin-bottom: 2px;
+  }
 `;
 
 const Label = styled.h4`
   margin: 0;
+  @media (min-width: 561px) and (max-width: 1024px) {
+    font-size: 1rem;
+  }
 `;
