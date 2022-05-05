@@ -37,22 +37,20 @@ export const Search = memo(() => {
   };
 
   return (
-    <>
-      <SFrom method="GET" onSubmit={hoge}>
-        <InputText
-          type="text"
-          placeholder="映画を検索"
-          value={keyWord}
-          onChange={onChangeKeyWord}
-        />
-        <InputSubmit type="submit" onClick={onClickSearch}>
-          <Icon
-            src="
+    <SFrom method="GET" onSubmit={hoge}>
+      <InputText
+        type="text"
+        placeholder="映画を検索"
+        value={keyWord}
+        onChange={onChangeKeyWord}
+      />
+      <InputSubmit type="submit" onClick={onClickSearch}>
+        <Icon
+          src="
           /検索アイコン1.png"
-          />
-        </InputSubmit>
-      </SFrom>
-    </>
+        />
+      </InputSubmit>
+    </SFrom>
   );
 });
 
@@ -67,7 +65,12 @@ const SFrom = styled.form`
   height: 2.3em;
   width: 20vw;
   overflow: hidden;
+  @media (max-width: 560px) {
+    /* display: inline-block; */
+    width: 50vw;
+  }
 `;
+
 const InputText = styled.input`
   border: none;
   background: rgba(0, 0, 0, 0);

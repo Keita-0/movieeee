@@ -50,6 +50,9 @@ const SCard = styled.div`
   padding: 20px;
   border-radius: 10px;
   overflow: hidden;
+  @media (max-width: 560px) {
+    padding: 10px;
+  }
 `;
 
 const InfoArea = styled.div`
@@ -63,6 +66,9 @@ const SIMG = styled.img`
   @media (min-width: 561px) and (max-width: 1024px) {
     height: 20vh;
   }
+  @media (max-width: 560px) {
+    height: 15vh;
+  }
 `;
 
 const STitle = styled.h2`
@@ -70,15 +76,24 @@ const STitle = styled.h2`
   @media (min-width: 561px) and (max-width: 1024px) {
     font-size: 1.3rem;
   }
+  @media (max-width: 560px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const SLabel = styled.p`
   font-weight: bold;
   margin-bottom: 3px;
+  @media (max-width: 560px) {
+    font-size: 0.4rem;
+  }
 `;
 
 const Sp = styled.p`
   margin: 0;
+  @media (max-width: 560px) {
+    font-size: 0.4rem;
+  }
 `;
 
 const SDiv = styled.div`

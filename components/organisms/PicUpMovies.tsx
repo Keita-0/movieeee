@@ -92,11 +92,11 @@ const MovieCardArea = styled.div`
 
 const MovieListArea = styled.div`
   width: 70%;
+  margin-bottom: 4rem;
   @media (min-width: 561px) and (max-width: 1024px) {
     width: 80%;
   }
   @media (max-width: 560px) {
     width: 100%;
   }
-  margin-bottom: 4rem;
 `;

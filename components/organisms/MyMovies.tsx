@@ -54,4 +54,8 @@ const MovieCardArea = styled.div`
   place-items: center;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   grid-gap: 2vw 0.5vw;
+  @media (max-width: 560px) {
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    grid-gap: 3vw 1vw;
+  }
 `;

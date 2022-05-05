@@ -48,7 +48,7 @@ export const MovieCard = memo((props: Props) => {
             src={
               movie.poster_path
                 ? `https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`
-                : "../../icon/20200506_noimage.png"
+                : "/20200506_noimage.png"
             }
             isSmall={isSmall}
           />
@@ -101,7 +101,8 @@ const SIMG = styled.img<ImgProps>`
     height: ${(props) => (props.isSmall ? 14 : 20)}vh;
   }
   @media (max-width: 560px) {
-    height: 11vh;
+    height: 12vh;
+    margin-bottom: 5px;
   }
 `;
 

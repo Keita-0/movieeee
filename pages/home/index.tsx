@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
 import React from "react";
 import styled from "styled-components";
+import { Search } from "../../components/molecules/Search";
 import { PicUpMovies } from "../../components/organisms/PicUpMovies";
 
 const Patterns = [
   { key: "now_playing", word: "上映中" },
-  // { key: "popular", word: "人気" },
   { key: "top_rated", word: "評価が高い" },
   { key: "upcoming", word: "上映予定" },
 ];
@@ -25,7 +25,6 @@ const Body = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 1.5rem 2rem;
-  margin-bottom: 5vh;
   @media (max-width: 560px) {
     padding: 1.5rem 1.5rem;
   }

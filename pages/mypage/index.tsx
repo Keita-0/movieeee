@@ -57,10 +57,13 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 80%;
+  width: 95%;
   height: 100%;
   margin: 2%;
   padding: 0 3vw;
+  @media (max-width: 560px) {
+    padding: 0 0.1vw;
+  }
 `;
 
 const TabArea = styled.div`
@@ -76,12 +79,18 @@ const MovieArea = styled.div`
 const Label = styled.h4`
   margin: 0;
   display: inline-block;
+  @media (max-width: 560px) {
+    font-size: 0.7rem;
+  }
 `;
 
 const IcomImg = styled.img`
   /* height: 2vh; */
   margin-right: 5%;
   width: 2vw;
+  @media (max-width: 560px) {
+    width: 4vw;
+  }
 `;
 
 const Tab = styled.div<Props>`
@@ -94,6 +103,10 @@ const Tab = styled.div<Props>`
 
   @media (min-width: 561px) and (max-width: 1024px) {
     width: 30%;
+  }
+
+  @media (max-width: 560px) {
+    width: 40%;
   }
 
   ${(props) =>

@@ -15,7 +15,7 @@ export const NavBar = () => {
 
   const isMenuOpen = () => {
     setMenuOpen(!menuOpen);
-    backfaceFixed(true);
+    backfaceFixed(!menuOpen);
   };
 
   const onClickSignOut = () => {
@@ -66,6 +66,7 @@ export const NavBar = () => {
               <a
                 onClick={() => {
                   onClickSignOut();
+                  setMenuOpen(false);
                   backfaceFixed(false);
                 }}
               >
@@ -97,7 +98,7 @@ const SContainer = styled.div`
 `;
 
 const MenuButton = styled.div<CustomProps>`
-  z-index: 2;
+  z-index: 10;
   & span {
     position: absolute;
     left: 0;
