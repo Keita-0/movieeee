@@ -89,7 +89,7 @@ const SCard = styled.div<CardProps>`
   }
   @media (max-width: 560px) {
     width: 5rem;
-    height: 8rem;
+    height: 8.5rem;
     padding: 0.4rem 0.2rem;
   }
 `;
