@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { sp, tab } from "../../utils/Media";
 
 type Props = {
   rating?: number;
@@ -59,7 +58,7 @@ const Sp = styled.label<Props>`
   font-size: ${(props) => (props.size ? props.size : 0)}%;
   margin-left: 20px;
   color: #ffcc00;
-  ${sp`
-        display:none;
-    `}
+  @media (max-width: 560px) {
+    display: none;
+  }
 `;

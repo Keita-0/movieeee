@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { pc, sp, tab } from "../../utils/Media";
 import styled, { css } from "styled-components";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -85,13 +84,13 @@ type CustomProps = {
 };
 
 const SContainer = styled.div`
-  ${pc`
-        display:none;
-    `}
-  ${tab`
-        display:none;
-    `}
-  width:100%;
+  @media (min-width: 1025px) {
+    display: none;
+  }
+  @media (min-width: 561px) and (max-width: 1024px) {
+    display: none;
+  }
+  width: 100%;
   display: flex;
   justify-content: end;
   align-items: center;

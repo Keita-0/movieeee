@@ -5,7 +5,6 @@ import "../../../Firebase/firebase";
 import { signOut } from "firebase/auth";
 import { Search } from "../../molecules/Search";
 import { useRouter } from "next/router";
-import { sp } from "../../../utils/Media";
 import { auth } from "../../../Firebase/firebase";
 import toast from "react-hot-toast";
 
@@ -108,9 +107,9 @@ const SLink = styled.div<Props>`
           border-bottom: 2px solid #0066ff;
         `
       : css``};
-  ${sp`
-        display:none;
-    `}
+  @media (max-width: 560px) {
+    display: none;
+  }
 `;
 
 const UserContainer = styled.div`

@@ -35,8 +35,4 @@ const VideoLabel = styled.h3`
 
 const VideoArea = styled.div`
   width: 100%;
-  /* margin-top: 6vh;
-  @media (min-width: 561px) and (max-width: 1024px) {
-    font-size: 1.5rem;
-  } */
 `;

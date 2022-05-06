@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import { memo } from "react";
-import { sp, tab } from "../../utils/Media";
 import { Star } from "../atoms/Star";
 
 import { ReactNode } from "react";
@@ -121,12 +120,11 @@ const STitle = styled.h2<TitleProps>`
   overflow: hidden;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  margin-bottom: 10px;
-  ${sp`
-      display:none;
-    `}
   @media (min-width: 561px) and (max-width: 1024px) {
     font-size: 0.8rem;
+  }
+  @media (max-width: 560px) {
+    display: none;
   }
 `;
 

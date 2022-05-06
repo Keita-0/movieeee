@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { VFC, Dispatch, SetStateAction, useState, useEffect } from "react";
-import { pc, sp, tab } from "../../utils/Media";
+import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import { Rate } from "../atoms/Rate";
 import {
   deleteReview,
@@ -115,12 +114,12 @@ const SContainer = styled.div`
   background: #fff;
   display: flex;
   flex-direction: column;
-  ${sp`
-        width: 90%;
-    `}
-  ${tab`
-        width: 90%;
-    `}
+  @media (min-width: 561px) and (max-width: 1024px) {
+    width: 90%;
+  }
+  @media (max-width: 560px) {
+    width: 90%;
+  }
 `;
 
 const ModalHeader = styled.div`
