@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import React from "react";
 import styled from "styled-components";
-import { Search } from "../../components/molecules/Search";
 import { PicUpMovies } from "../../components/organisms/PicUpMovies";
 
 const Patterns = [

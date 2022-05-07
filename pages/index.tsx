@@ -2,7 +2,6 @@ import { GoogleAuthProvider, signInWithPopup } from "@firebase/auth";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import { sp, tab } from "../utils/Media";
 import "../Firebase/firebase";
 import toast from "react-hot-toast";
 import { auth } from "../Firebase/firebase";
@@ -85,9 +84,11 @@ const SDiv = styled.div`
     cursor: pointer;
     opacity: 80%;
   }
-  ${sp`
-        width:50vw;
-    `}
+  @media (max-width: 560px) {
+    width: 50vw;
+    height: 60%;
+    padding: 8%;
+  }
 `;
 
 const Sp = styled.p`

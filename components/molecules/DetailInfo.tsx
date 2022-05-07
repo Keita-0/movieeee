@@ -63,7 +63,7 @@ const Titile = styled.h2`
 const Sp = styled.p`
   font-size: 15px;
   @media (max-width: 560px) {
-    font-size: 8px;
+    font-size: 10px;
   }
 `;
 

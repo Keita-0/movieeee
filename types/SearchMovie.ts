@@ -4,9 +4,3 @@ export type SearchMovieType = {
   language: string;
   api_key: string;
 };
-
-export type AlertType = {
-  isAlert: boolean;
-  alertMsg: string;
-  alertKind: number;
-};

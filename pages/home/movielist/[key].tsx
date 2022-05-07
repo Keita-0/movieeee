@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import styled from "styled-components";
 import { getMovieQuery, getSearchMovies } from "../../../hooks/useFetchArray";
-import { sp, tab } from "../../../utils/Media";
 import { Loading } from "../../../components/atoms/Loading";
 import { MovieCard } from "../../../components/molecules/MovieCard";
 import { PageNation } from "../../../components/molecules/PageNation";

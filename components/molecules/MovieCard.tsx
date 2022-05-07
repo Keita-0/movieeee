@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 import { memo } from "react";
 import { Star } from "../atoms/Star";
-
 import { ReactNode } from "react";
 import { useRouter } from "next/router";
 
