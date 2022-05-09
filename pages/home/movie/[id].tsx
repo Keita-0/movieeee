@@ -44,6 +44,10 @@ const Movie: NextPage = () => {
     return null;
   }
 
+  if (error) {
+    return <p>エラー</p>;
+  }
+
   //レビュー押下時処理
   const onClickModal = () => {
     setmodalReview(false);
