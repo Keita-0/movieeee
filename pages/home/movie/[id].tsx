@@ -21,7 +21,6 @@ const Movie: NextPage = () => {
 
   const { data, error, isLoading, isEmpty } = getMovie(id, refreshInterval);
 
-  // この部分を追加
   useEffect(() => {
     // idがqueryで利用可能になったら処理される
     if (router.asPath !== router.route) {
@@ -29,7 +28,6 @@ const Movie: NextPage = () => {
     }
   }, [router]);
 
-  // idが取得されてセットされたら処理される
   useEffect(() => {
     if (id) {
       setRefreshInterval(0);
