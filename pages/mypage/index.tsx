@@ -1,4 +1,3 @@
-import { getAuth } from "@firebase/auth";
 import type { NextPage } from "next";
 import { useState } from "react";
 import styled, { css } from "styled-components";
@@ -11,7 +10,6 @@ type Props = {
 };
 
 const MyPage: NextPage = () => {
-  const auth = getAuth();
   const [isBookMarkFocus, setBookMarkFocus] = useState(true);
 
   const onClickBookMarkFocus = () => {
