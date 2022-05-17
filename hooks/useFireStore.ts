@@ -60,37 +60,6 @@ export const getData = async (): Promise<Movie[]> => {
   return movies;
 };
 
-export const insertWatchedMovie = async (movie: any, markFlg: boolean) => {
-  const auth = getAuth();
-  const user = auth.currentUser;
-  const uid = user?.uid;
-  const docRef = doc(db, "BookMarkMovie", uid + "_" + movie.id);
-  const docSnap = await getDoc(docRef);
-
-  try {
-    //削除処理
-    if (markFlg) {
-      await deleteDoc(doc(db, "markMovie", uid + "_" + movie.id));
-      alert("ブックマークから削除しました。");
-      return false;
-      //登録処理
-    } else {
-      await setDoc(doc(db, "BookMarkMovie", uid + "_" + movie.id), {
-        id: movie.id,
-        title: movie.title,
-        photo: `https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`,
-        synopsis: movie.overview,
-        vote_average: Math.round(parseFloat(movie.vote_average) / 2),
-        user: uid,
-      });
-      alert("ブックマークしました！");
-      return true;
-    }
-  } catch (e) {
-    throw e;
-  }
-};
-
 //ブックマークした映画か判定
 export const checkMark = async (movie: any): Promise<boolean> => {
   const auth = getAuth();
