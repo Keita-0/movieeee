@@ -7,10 +7,6 @@ import { MovieCard } from "../../../components/molecules/MovieCard";
 import { PageNation } from "../../../components/molecules/PageNation";
 import { useRouter } from "next/router";
 
-interface RouterParams {
-  id: string;
-}
-
 const Patterns = [
   { key: "now_playing", word: "上映中" },
   { key: "popular", word: "人気" },
