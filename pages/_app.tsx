@@ -22,7 +22,7 @@ const Auth = ({ children }: Props): JSX.Element => {
   return router.pathname === "/" || result.signInUser.uid ? (
     children
   ) : (
-    <p>サインインしてください...</p>
+    <p>サインインしてください..</p>
   );
 };
 
